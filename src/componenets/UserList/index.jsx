@@ -56,14 +56,15 @@ class UserList extends Component {
             newUsers[index].isSelected = !newUsers[index].isSelected;
             this.setState({ users: newUsers });
         };
-        const deleteUser = (user, index) => {
+        const deleteUser = () => {
             const { users } = this.state;
-            this.setState(users.splice(index, 1));
+            console.log(users[index]);
+            this.setState({ users: users.filter(user => user !== users[index]) });
 
         };
 
         return (
-            <UserListItem key={user.id} user={user} onClickHandler={onClickHandler} deleteUser={deleteUser} />
+            <UserListItem index={index} key={user.id} user={user} onClickHandler={onClickHandler} deleteUser={deleteUser} />
         );
 
     }

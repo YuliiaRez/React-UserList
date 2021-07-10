@@ -4,39 +4,41 @@ import React from 'react';
 
 function UserListItem(props) {
     const {
-        user: { srcImg, id, firstName, lastName, age, isSelected, },
+        user: { srcImg, firstName, lastName, age, isSelected, },
         onClickHandler,
         deleteUser,
     } = props;
 
-    const liStyle = { backgroundColor: '#CCCCCC' };
+    const liStyle = {
+        backgroundColor: '#2d6a4f', color: '#ffffff', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: '5px', maxWidth: '600px',
+    };
+    const liStyle1 = {
+        backgroundColor: '#64dfdf', color: '#1d3557', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: '5px', maxWidth: '600px',
+    };
+
     const imgStyle = { height: '100px', width: '100px', borderRadius: '50%', objectFit: 'cover' };
     const userStyle = {
-        display: 'flex', flexDirection: 'row', alignItems: 'center',
         lineHeight: '2em',
         fontFamily: "Montserrat",
         flexWrap: 'wrap',
-        width: '400px',
-        color: '#1d3557',
         borderColor: '#a9d6e5',
         borderWidth: '3px',
-        margin: '5px',
     }
-    /*const buttonStyle = {
+    const buttonStyle = {
         marginLeft: 'auto',
         marginRight: '10px',
         height: '40px',
-    }*/
+        width: '30%'
+    }
 
     return (
         <>
-            <li style={isSelected ? liStyle : null} >
+            <li style={isSelected ? liStyle : liStyle1} >
                 <div style={userStyle} onClick={onClickHandler} >
                     <img style={imgStyle} src={srcImg} alt='user' />
-                    <span>{id}</span>
-                    <span>Name :{firstName}      {lastName}<br></br>{age} years old'</span>
+                    <span>Name :{firstName} {lastName}. Age:   {age} years old</span>
                 </div>
-                <button onClick={deleteUser}>Del</button>
+                <button style={buttonStyle} onClick={deleteUser}>Del</button>
             </li>
         </>
     );
