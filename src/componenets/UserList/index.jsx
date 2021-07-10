@@ -57,8 +57,6 @@ class UserList extends Component {
             this.setState({ users: newUsers });
         };
         const deleteUser = () => {
-            const { users } = this.state;
-            console.log(users[index]);
             this.setState({ users: users.filter(user => user !== users[index]) });
 
         };
