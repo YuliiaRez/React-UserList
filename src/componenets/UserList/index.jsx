@@ -45,7 +45,7 @@ class UserList extends Component {
         this.state = {
             users: dbUsers.map(u => ({
                 ...u,
-                isSelected: false
+                isSelected: false,
             }))
         };
     }
@@ -56,11 +56,17 @@ class UserList extends Component {
             newUsers[index].isSelected = !newUsers[index].isSelected;
             this.setState({ users: newUsers });
         };
+        const deleteUser = (user, index) => {
+            const { users } = this.state;
+            this.setState(users.splice(index, 1));
+
+        };
 
         return (
-            <UserListItem key={user.id} user={user} onClickHandler={onClickHandler} />
+            <UserListItem key={user.id} user={user} onClickHandler={onClickHandler} deleteUser={deleteUser} />
         );
-    };
+
+    }
 
     render() {
         const { users } = this.state;
