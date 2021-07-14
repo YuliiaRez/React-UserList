@@ -1,46 +1,69 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import styles from './SignUp.module.css'
 
-class LoginForm extends Component {
+class SignUp extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            loginValue: '',
+            nameValue: '',
             passValue: '',
+            emailValue: '',
+            isNameValid: false,
         };
     };
-    /*handleLoginChange = ({ target: { value } }) => {
-        this.setState({ loginValue: value });
+    handleNameChange = ({ target: { value } }) => {
+        this.setState({
+            nameValue: value, isNameValid: /^\S+$/.test(value),
+        });
+    };
+    handleEmailChange = ({ target: { value } }) => {
+        this.setState({
+            emailValue: value, isEmailValid: /^\S+$/.test(value),
+        });
     };
     handlePassChange = ({ target: { value } }) => {
         this.setState({ passValue: value });
-    };*/
-    handleChange = ({ target: { value, name } }) => {
-        this.setState({ [name]: value });
     };
 
     submitHandler = e => {
         e.preventDefault();
     };
     render() {
-        const { loginValue, passValue } = this.state;
-
+        const { nameValue, passValue, emailValue, isNameValid } = this.state;
+        const nameClassName = classNames(styles.input, {
+            [isNameValid ? styles.valid : styles.invalid]: nameValue,
+        });
         return (
-            <form onSubmit={this.submitHandler}>
+            <form className={styles.container} onSubmit={this.submitHandler}>
                 <label>
-                    login
-                    <input type="text" placeholder='login'
-                        name='loginValue'
-                        value={loginValue}
-                        onChange={this.handleChange} />
+                    Name
+                    <input
+                        className={nameClassName}
+                        type="text" placeholder='name'
+                        name='nameValue'
+                        value={nameValue}
+                        onChange={this.handleNameChange} />
                 </label>
-                <label > Password
-                    <input type="password" name="passValue" placeholder='password' value={passValue}
-                        onChange={this.handleChange} />
+                <label>
+                    Email
+                    <input
+                        className={styles.input}
+                        type="email" placeholder='email'
+                        name='emailValue'
+                        value={emailValue}
+                        onChange={this.handleEmailChange} />
+                </label>
+                <label className={styles.InputLabel}> Enter
+                    <input
+                        className={styles.input}
+                        type="password" name="passValue" placeholder='password' value={passValue}
+                        onChange={this.handlePassChange} />
                 </label>
                 <button type='submit'>Sign Up</button>
             </form>
         )
     }
 }
-export default LoginForm;
+export default SignUp;
