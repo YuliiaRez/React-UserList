@@ -62,7 +62,7 @@ class UserList extends Component {
         };
 
         return (
-            <UserListItem index={index} key={user.id} user={user} onClickHandler={onClickHandler} deleteUser={deleteUser} />
+            <UserListItem key={user.id} user={user} onClickHandler={onClickHandler} deleteUser={deleteUser} />
         );
 
     }

@@ -1,9 +1,9 @@
 import './App.css';
 import React from 'react';
-import UserList from './componenets/UserList'
+import SignUp from './componenets/SignUp/ index';
 
 function App() {
-  return <UserList />;
+  return <SignUp />;
 }
 
 export default App;
