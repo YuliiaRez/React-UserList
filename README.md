@@ -1,3 +1,11 @@
+Create a component for the SignUp form with the Name, email, password fields and the SignUp button.
+Fill out the form.
+Implement validation for any selected field with stylized highlighting.
+Override the default behavior for the SignUp push.
+
+Technologies used: https://www.npmjs.com/package/classnames.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
