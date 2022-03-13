@@ -1,3 +1,12 @@
+Create a list of users (components UsersListHW, UserListItemHW). (Interaction parent -> child: props).
+Users have this info: id, firstName, lastName, age, imgSrc.
+Styling user cards (example in the application or in your own way).
+
+Implement (one or both):
+- * user choice (by clicking on it). Style selected users, for example, with a border and background;
+- * deleting a user (by clicking on the button next to the user).
+ (Interaction child -> parent: callback).
+
 Create a component for the SignUp form with the Name, email, password fields and the SignUp button.
 Fill out the form.
 Implement validation for any selected field with stylized highlighting.
